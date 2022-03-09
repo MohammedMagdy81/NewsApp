@@ -3,9 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1225" />
+        <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1255" />
+        <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.1255" />
+        <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1225" />
+        <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_launcher_icon_background.xml" value="0.1225" />
+        <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_detailes.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_news_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_splash.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/layout/item_news_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/layout/news_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Android/AndroidStudioProjects/NewsApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_icon.xml" value="0.1225" />
       </map>
     </option>
   </component>

@@ -4,10 +4,9 @@
 
     <data>
         <variable
-            name="newsItem"
-            type="com.example.newsapp.api.model.ArticlesItem" />
+            name="newsModel"
+            type="com.example.newsapp.localdata.NewsModel" />
     </data>
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +22,6 @@
             android:padding="12dp"
             android:background="#1EE6D0D0">
 
-
             <TextView
                 android:id="@+id/date"
                 app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +29,7 @@
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimary"
                 android:padding="6dp"
-                android:text="@{newsItem.publishedAt}"
+                android:text="@{newsModel.date}"
                 android:textStyle="italic|bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -40,7 +38,7 @@
                 android:id="@+id/title"
                 android:layout_width="0dp"
                 android:padding="6dp"
-                android:text="@{newsItem.title}"
+                android:text="@{newsModel.title}"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="22sp"
@@ -62,9 +60,9 @@
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                urlToImage="@{newsModel.urlToImage}"
                 android:adjustViewBounds="true"
                 android:layout_margin="10sp"
-                urlToImage="@{newsItem.urlToImage}"
                 app:layout_constraintTop_toBottomOf="@id/title" />
 
             <TextView
@@ -73,15 +71,23 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:padding="5sp"
+                android:text="@{newsModel.desc}"
                 android:layout_margin="4dp"
                 android:maxLines="2"
                 android:textColor="#000"
-                android:text="@{newsItem.description}"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image" />
-
+<ImageView
+    android:id="@+id/itemDelete"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_margin="12dp"
+    android:src="@drawable/ic_baseline_delete_24"
+    />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
