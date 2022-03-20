@@ -8,22 +8,18 @@ import android.os.Looper
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import com.airbnb.lottie.LottieAnimationView
 import com.example.newsapp.R
 import com.example.newsapp.ui.home.HomeActivity
 
-
 class SplashActivity : AppCompatActivity() {
+    lateinit var lottieAnimationView: LottieAnimationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        lottieAnimationView =findViewById(R.id.lottie);
+        lottieAnimationView.animate().translationY(1500F).setDuration(1000).setStartDelay(5000);
 
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
-        val backgroundImage: ImageView = findViewById(R.id.splash_image)
-        val slideAnimation = AnimationUtils.loadAnimation(this,R.anim.myanim)
-        backgroundImage.startAnimation(slideAnimation)
 
         Handler(Looper.getMainLooper()).postDelayed({
                   goToHomeActivity()
