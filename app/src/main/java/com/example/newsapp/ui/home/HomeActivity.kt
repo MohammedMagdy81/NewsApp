@@ -24,6 +24,7 @@ class HomeActivity : BaseActivity<HomeViewModel,ActivityHomeBinding>() ,TabLayou
     //9310ffe42c424e46b5e039f2877480d4
 
     lateinit var adapter: NewsAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setUpViews()
