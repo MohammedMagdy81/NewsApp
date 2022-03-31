@@ -23,6 +23,7 @@ class ApiManeger  {
                 })
                 interceptor.level=HttpLoggingInterceptor.Level.BODY
                 val client= OkHttpClient.Builder().addInterceptor(interceptor).build()
+
                 retrofit=Retrofit.Builder()
                     .baseUrl("https://newsapi.org/v2/")
                     .client(client)
