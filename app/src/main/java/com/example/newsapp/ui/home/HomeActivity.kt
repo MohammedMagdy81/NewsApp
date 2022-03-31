@@ -1,9 +1,9 @@
 package com.example.newsapp.ui.home
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.newsapp.Constants
@@ -18,12 +18,15 @@ import com.example.newsapp.ui.detailes.DetailesActivity
 import com.example.newsapp.ui.listnews.NewsListActivity
 import com.example.todoapp.base.BaseActivity
 import com.google.android.material.tabs.TabLayout
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : BaseActivity<HomeViewModel,ActivityHomeBinding>() ,TabLayout.OnTabSelectedListener,
     NewsAdapter.OnItemClick{
     //9310ffe42c424e46b5e039f2877480d4
 
     lateinit var adapter: NewsAdapter
+    private val homeViewModel:HomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,7 +99,7 @@ class HomeActivity : BaseActivity<HomeViewModel,ActivityHomeBinding>() ,TabLayou
     }
 
     override fun initializeViewMode(): HomeViewModel {
-        return ViewModelProvider(this).get(HomeViewModel::class.java)
+        return homeViewModel
     }
 
     override fun getLayoutId(): Int {

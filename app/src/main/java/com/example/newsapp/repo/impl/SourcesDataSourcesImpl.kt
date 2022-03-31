@@ -6,8 +6,9 @@ import com.example.newsapp.api.model.SourcesItem
 import com.example.newsapp.repo.datasources.SourcesOfflineDataSources
 import com.example.newsapp.repo.datasources.SourcesOnlineDataSources
 import com.example.newsapp.sourcesdatabase.SourcesDatabase
+import javax.inject.Inject
 
-class SourcesOnlineDataSourcesImp(val webService: WebService) : SourcesOnlineDataSources{
+class SourcesOnlineDataSourcesImp @Inject constructor(val webService: WebService) : SourcesOnlineDataSources{
 
     // this function to retrieve data from API
     override suspend fun getSources(): List<SourcesItem?>? {
@@ -17,7 +18,7 @@ class SourcesOnlineDataSourcesImp(val webService: WebService) : SourcesOnlineDat
 
 }
 
-class SourcesOfflineDataSourcesImpl(val database:SourcesDatabase) : SourcesOfflineDataSources{
+class SourcesOfflineDataSourcesImpl @Inject constructor(val database:SourcesDatabase) : SourcesOfflineDataSources{
     // this function to retrieve data from API
     override suspend fun getSources(): List<SourcesItem> {
         val sources = database.getSourcesDao().getSourcesItem()

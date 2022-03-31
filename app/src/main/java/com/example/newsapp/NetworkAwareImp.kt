@@ -9,7 +9,6 @@ class NetworkAwareImp(val context: Context) : NetworkAware {
 
     companion object{
         var myInstance : NetworkAware?=null
-
         fun init(context: Context){
             myInstance = NetworkAwareImp(context)
         }

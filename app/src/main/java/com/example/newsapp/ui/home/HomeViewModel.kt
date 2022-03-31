@@ -1,31 +1,23 @@
 package com.example.newsapp.ui.home
 
-import android.content.DialogInterface
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsapp.Constants
-import com.example.newsapp.NetworkAware
-import com.example.newsapp.NetworkAwareImp
-import com.example.newsapp.api.ApiManeger
+import com.example.newsapp.api.WebService
 import com.example.newsapp.api.model.ArticlesItem
 import com.example.newsapp.api.model.NewsResponse
 import com.example.newsapp.api.model.SourcesItem
-import com.example.newsapp.api.model.SourcesResponse
 import com.example.newsapp.repo.SourcesRepository
-import com.example.newsapp.repo.datasources.SourcesOfflineDataSources
-import com.example.newsapp.repo.datasources.SourcesOnlineDataSources
-import com.example.newsapp.repo.impl.SourcesOfflineDataSourcesImpl
-import com.example.newsapp.repo.impl.SourcesOnlineDataSourcesImp
-import com.example.newsapp.repo.impl.SourcesRepositoryImpl
-import com.example.newsapp.sourcesdatabase.SourcesDatabase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
-class HomeViewModel :ViewModel() {
+import javax.inject.Inject
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val sourceRepository:SourcesRepository ,
+private val webService: WebService) :ViewModel() {
     // hold data
     // handle logic of app
 
@@ -33,14 +25,6 @@ class HomeViewModel :ViewModel() {
     val messageLiveData=MutableLiveData<String>()
     val sourcesLiveData=MutableLiveData<List<SourcesItem?>?>()
     val newsLiveData=MutableLiveData<List<ArticlesItem?>?>()
-    val networkAware:NetworkAware= NetworkAwareImp.getInstance()
-    val sourceOfflineDataSources : SourcesOfflineDataSources= SourcesOfflineDataSourcesImpl(
-        SourcesDatabase.getInstance())
-    val sourcesOnlineDataSources:SourcesOnlineDataSources= SourcesOnlineDataSourcesImp(ApiManeger.getApi())
-    val sourceRepository:SourcesRepository= SourcesRepositoryImpl(sourcesOfflineDataSources =sourceOfflineDataSources ,
-    sourcesOnlineDataSources = sourcesOnlineDataSources , networkAware = networkAware)
-
-
 
      fun getSources() {
          showProgressLiveData.value=true
@@ -63,7 +47,7 @@ class HomeViewModel :ViewModel() {
         showProgressLiveData.value=true
         //progressBar.visibility=View.VISIBLE
 
-        ApiManeger.getApi().getNews(Constants.API_KEY,"en",sourcesId?:"","")
+        webService.getNews(Constants.API_KEY,"en",sourcesId?:"","")
             .enqueue(object :Callback<NewsResponse>{
                 override fun onResponse(
                     call: Call<NewsResponse>,
