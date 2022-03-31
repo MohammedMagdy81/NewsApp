@@ -25,7 +25,7 @@ class DetailesActivity : BaseActivity<DetailesViewModel,ActivityDetailesBinding>
         val desc = intent.getStringExtra(Constants.DESC_KEY)
         val uri = intent.getStringExtra(Constants.IMAGE_KEY)
 
-        viewBinding.date.text= date
+        viewBinding.date.text= date?.split("T","Z",",").toString()
         viewBinding.title.text= title
         viewBinding.description.text=desc
         Glide.with(viewBinding.image)

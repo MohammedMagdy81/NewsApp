@@ -5,8 +5,9 @@ import com.example.newsapp.api.model.SourcesItem
 import com.example.newsapp.repo.SourcesRepository
 import com.example.newsapp.repo.datasources.SourcesOfflineDataSources
 import com.example.newsapp.repo.datasources.SourcesOnlineDataSources
+import javax.inject.Inject
 
-class SourcesRepositoryImpl(val sourcesOnlineDataSources: SourcesOnlineDataSources,
+class SourcesRepositoryImpl @Inject constructor(val sourcesOnlineDataSources: SourcesOnlineDataSources,
                             val sourcesOfflineDataSources: SourcesOfflineDataSources,
                             val networkAware: NetworkAware
 ) : SourcesRepository {
