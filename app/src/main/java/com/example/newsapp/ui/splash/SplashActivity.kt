@@ -31,4 +31,14 @@ class SplashActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+    override fun onResume() {
+        super.onResume()
+        finish()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        finish()
+    }
 }
