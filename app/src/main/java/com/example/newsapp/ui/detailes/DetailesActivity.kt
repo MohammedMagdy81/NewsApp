@@ -2,6 +2,7 @@ package com.example.newsapp.ui.detailes
 
 
 import android.os.Bundle
+import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -29,9 +30,26 @@ class DetailesActivity : BaseActivity<DetailesViewModel,ActivityDetailesBinding>
             uri.let {
                 loadUrl(it)
             }
+            val setting = viewBinding.webView.settings
+            setUpUrlClicking(setting)
 
         }
     }
+
+    private fun setUpUrlClicking(setting: WebSettings) {
+        setting.apply {
+            javaScriptEnabled=true
+            setAppCacheEnabled(true)
+            cacheMode= WebSettings.LOAD_DEFAULT
+            setSupportZoom(false)
+            builtInZoomControls= true
+            displayZoomControls=false
+            textZoom=100
+            blockNetworkImage=false
+            loadsImagesAutomatically=true
+        }
+    }
+
 
     override fun initializeViewMode(): DetailesViewModel {
         return ViewModelProvider(this).get(DetailesViewModel::class.java)
