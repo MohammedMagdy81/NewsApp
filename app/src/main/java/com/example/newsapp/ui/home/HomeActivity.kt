@@ -116,6 +116,7 @@ class HomeActivity : BaseActivity<HomeViewModel,ActivityHomeBinding>() ,TabLayou
         val date = newsItem.publishedAt
         val url = newsItem.urlToImage
         val content= newsItem.content
+        val uri = newsItem.url
         showDialog(message = "Show Details Or Save ?" ,posActionName = "Details",negActionName = "Save",
         posAction = { dialog, i ->
             val intent= Intent(this,DetailesActivity::class.java)
@@ -123,9 +124,10 @@ class HomeActivity : BaseActivity<HomeViewModel,ActivityHomeBinding>() ,TabLayou
             intent.putExtra(Constants.DESC_KEY,content)
             intent.putExtra(Constants.DATE_KEY,date)
             intent.putExtra(Constants.IMAGE_KEY,url)
+           intent.putExtra(Constants.URI_KEY,uri)
             startActivity(intent)
         },negAction = { dialog, i ->
-                val newsModel= NewsModel(title = title.toString(),desc =desc,date = date,urlToImage = url )
+                val newsModel= NewsModel(title = title.toString(),desc =desc,date = date,urlToImage = url , url = uri )
                 NewsDataBase.getInstance(this).getNewsDao().addNews(newsModel)
                 dialog.dismiss()
                 makeToast("This Item Saved Successfully")

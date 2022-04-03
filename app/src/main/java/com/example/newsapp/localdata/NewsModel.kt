@@ -9,4 +9,6 @@ data class NewsModel(@ColumnInfo @PrimaryKey(autoGenerate = true) var id :Int?=n
                      @ColumnInfo var title :String?=null,
                      @ColumnInfo var desc :String?=null,
                      @ColumnInfo var date :String?=null,
-                     @ColumnInfo var urlToImage :String?=null)
+                     @ColumnInfo var urlToImage :String?=null ,
+                     @ColumnInfo var url :String?=null
+)

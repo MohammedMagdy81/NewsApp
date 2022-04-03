@@ -7,5 +7,6 @@ object Constants {
     val DESC_KEY="escription"
     val DATE_KEY="date"
     val IMAGE_KEY="image"
+    val URI_KEY="uri"
     const val SOURCES_DB="Sources-db"
 }

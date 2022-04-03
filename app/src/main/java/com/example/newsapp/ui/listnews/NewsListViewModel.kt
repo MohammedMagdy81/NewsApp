@@ -9,17 +9,14 @@ import com.example.newsapp.localdata.NewsModel
 
 class NewsListViewModel : ViewModel() {
     val newsLiveData= MutableLiveData<List<NewsModel?>?>()
-    val txtItemNotFound= ObservableField<Boolean>(true)
 
       fun getNewsFromDb(context: Context) {
         newsLiveData.value = NewsDataBase.getInstance(context).getNewsDao().getAllNews()
-          if (newsLiveData.value!!.size!=0){
-              txtItemNotFound.set(false)
-          }else{
-              txtItemNotFound.set(true)
-          }
 
     }
+
+
+
 
 
 

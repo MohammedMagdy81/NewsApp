@@ -15,15 +15,29 @@
         android:layout_height="match_parent"
         tools:context=".ui.listnews.NewsListActivity">
 
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="12dp"
+            android:padding="12dp"
+            android:drawableStart="@drawable/ic_search"
+
+            />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/newsListRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_margin="12dp"
-
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
 
-            />
+            app:layout_constraintTop_toBottomOf="@id/et_search"
+            tools:layout_editor_absoluteX="12dp" />
 
         <TextView
             android:id="@+id/txt_noItemFound"
@@ -34,9 +48,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:text="No Item Found !"
-            android:visibility="@{vm.txtItemNotFound?View.VISIBLE:View.GONE}"
+            android:visibility="visible"
+            android:textStyle="italic"
             android:textSize="30sp"
-            android:textColor="@color/black"
+            android:textColor="#D81313"
 
             />
 

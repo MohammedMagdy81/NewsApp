@@ -41,6 +41,7 @@ private val webService: WebService) :ViewModel() {
          }
     }
 
+
      fun getNews(sourcesId: String?) {
          newsLiveData.value=null
         //adapter.changeData(null)
