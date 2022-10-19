@@ -24,6 +24,11 @@ class NewsAdapter(var articlesItem: List<ArticlesItem?>?) : RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         holder.bind(articlesItem!!.get(position))
+        if (onArticleItemClick!=null){
+            holder.itemView.setOnClickListener {
+                onArticleItemClick!!.onItemClick(position, articlesItem!![position])
+            }
+        }
 
     }
 
@@ -34,6 +39,11 @@ class NewsAdapter(var articlesItem: List<ArticlesItem?>?) : RecyclerView.Adapter
     fun setData(articlesItem: List<ArticlesItem?>?){
         this.articlesItem=articlesItem
         notifyDataSetChanged()
+    }
+
+    var onArticleItemClick : OnArticleItemClick?=null
+     interface OnArticleItemClick{
+        fun onItemClick(position: Int,articlesItem: ArticlesItem?)
     }
 
     class NewsViewHolder(val newsItemBinding:NewsItemBinding): RecyclerView.ViewHolder(newsItemBinding.root) {
