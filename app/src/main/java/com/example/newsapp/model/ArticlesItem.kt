@@ -11,7 +11,6 @@ data class ArticlesItem(
 	@NonNls
 	@ColumnInfo
 	@PrimaryKey
-
 	@field:SerializedName("publishedAt")
 	val publishedAt: String,
 

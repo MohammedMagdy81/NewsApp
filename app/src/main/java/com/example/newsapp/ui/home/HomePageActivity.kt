@@ -26,13 +26,13 @@ class HomePageActivity : BaseActivity<ActivityHomePageBinding, HomePageViewModel
         setUpAdapter()
         viewModel.getSources()
         observeToLiveData()
-        setUpClickArticalItem()
+        setUpClickArticleItem()
 
 
     }
 
 
-    private fun setUpClickArticalItem() {
+    private fun setUpClickArticleItem() {
         adapter.onArticleItemClick = object : NewsAdapter.OnArticleItemClick {
             override fun onItemClick(position: Int, newsItem: ArticlesItem?) {
                 val uri = newsItem?.url
